@@ -112,20 +112,32 @@ public class UI extends javax.swing.JFrame {
 }*/
                 
                 int sum = 0;
-                int[] results = new int[100];
+               // int[] results = new int[100];
                 ArrayList<Integer> points = new ArrayList<Integer>();
-                
+                 
 
-                
                 for (int i = 0; i < 100; i++) {
                   sum = zo.nextInt(2); 
                   points.add(sum);
                 }
+               
+               
+                
+              
+                  if(points.get(0) == 1){
+                  points.set(0, 0);
+               } 
+                  
+                     if(points.get(99) == 1){
+                  points.set(99, 0);
+               } 
+                
         
         this.variablesWindow.setText("");
         
     System.out.println(points + " ");
     this.variablesWindow.setText(this.variablesWindow.getText() + " " + points);
+   
 
     }//GEN-LAST:event_generateButtonActionPerformed
 
