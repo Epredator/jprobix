@@ -6,6 +6,7 @@
 
 package jprobix.ui;
 
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JFrame;
 
@@ -112,18 +113,20 @@ public class UI extends javax.swing.JFrame {
                 
                 int sum = 0;
                 int[] results = new int[100];
+                ArrayList<Integer> points = new ArrayList<Integer>();
+                
+
                 
                 for (int i = 0; i < 100; i++) {
-                  sum = zo.nextInt(2);
-                  results[i] = sum;
-                  System.out.println(sum + " ");
+                  sum = zo.nextInt(2); 
+                  points.add(sum);
                 }
         
         this.variablesWindow.setText("");
         
- for (int i=0; i<results.length; i++) {
-    this.variablesWindow.setText(this.variablesWindow.getText() + " " + results[i]);
-}
+    System.out.println(points + " ");
+    this.variablesWindow.setText(this.variablesWindow.getText() + " " + points);
+
     }//GEN-LAST:event_generateButtonActionPerformed
 
     /**
