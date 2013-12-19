@@ -6,6 +6,8 @@
 
 package jprobix;
 
+import jprobix.ui.UI;
+
 /**
  *
  * @author epredator
@@ -16,12 +18,20 @@ public class JProbiX {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        println("test");
+          java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new UI().setVisible(true);
+              
+                
+            }
+        });
     }
 
-    private static void println(String test) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }
+
+
+
+
+

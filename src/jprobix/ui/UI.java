@@ -7,6 +7,7 @@
 package jprobix.ui;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 import javax.swing.JFrame;
 
@@ -15,6 +16,8 @@ import javax.swing.JFrame;
  * @author epredator
  */
 public class UI extends javax.swing.JFrame {
+    int n =2;
+    int k =1000;
 
     /**
      * Creates new form UI
@@ -42,6 +45,10 @@ public class UI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         generateButton = new javax.swing.JButton();
         variablesWindow = new javax.swing.JTextField();
+        nWindow = new javax.swing.JLabel();
+        kWindow = new javax.swing.JLabel();
+        kTextField = new javax.swing.JTextField();
+        nTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,20 +70,72 @@ public class UI extends javax.swing.JFrame {
 
         variablesWindow.setText("Puste");
 
+        nWindow.setText("Maksymalna wielkosc n-elementowego ciagu:");
+
+        kWindow.setText("Maksymalna wielkosc k-elementowych blokow jedynek:");
+
+        kTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kTextFieldActionPerformed(evt);
+            }
+        });
+        kTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                kTextFieldFocusLost(evt);
+            }
+        });
+
+        nTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nTextFieldActionPerformed(evt);
+            }
+        });
+        nTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nTextFieldFocusLost(evt);
+            }
+        });
+        nTextField.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                nTextFieldInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        nTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nTextFieldKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(generateButton)
-                            .addComponent(jLabel1))
-                        .addGap(0, 421, Short.MAX_VALUE))
-                    .addComponent(variablesWindow))
+                            .addComponent(jTextField1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(generateButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(kWindow)
+                                            .addComponent(nWindow))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(kTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
+                                            .addComponent(nTextField))))
+                                .addGap(0, 173, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(variablesWindow)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -86,11 +145,19 @@ public class UI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(generateButton)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nWindow)
+                    .addComponent(nTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kWindow)
+                    .addComponent(kTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addComponent(variablesWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(generateButton)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,44 +169,80 @@ public class UI extends javax.swing.JFrame {
 
     private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
          Random zo= new Random();
-            /*    int number;
+         int sum = 0;
+         
+         ArrayList<Integer> all = new ArrayList<Integer>();
+         //k - ilosc jedynek
+         //n - ilosc liczb
+
+         /*    int number;
                 int numbers[] = new int[200]; 
                 
                 for (int i=0; i<1000; i++){
                    number = zo.nextInt(2);
                    numbers[i] = number;
                    //System.out.println(number + " ");
-}*/
-                
-                int sum = 0;
+}*/          
                // int[] results = new int[100];
-                ArrayList<Integer> points = new ArrayList<Integer>();
-                 
+                
 
-                for (int i = 0; i < 100; i++) {
-                  sum = zo.nextInt(2); 
-                  points.add(sum);
-                }
-               
-               
+                
+                 
+               for (int j = 0; j < zo.nextInt(k); j++) {  
+                all.addAll(generate());
+               }
                 
               
-                  if(points.get(0) == 1){
-                  points.set(0, 0);
-               } 
-                  
-                     if(points.get(99) == 1){
-                  points.set(99, 0);
-               } 
+             
                 
         
         this.variablesWindow.setText("");
         
-    System.out.println(points + " ");
-    this.variablesWindow.setText(this.variablesWindow.getText() + " " + points);
-   
+    System.out.println(all + " ");
+    this.variablesWindow.setText(this.variablesWindow.getText() + " " + all);
+    System.out.println("Liczba wszystkich elementow ciagu: " + all.size());
+    System.out.println("---------------------------");
 
     }//GEN-LAST:event_generateButtonActionPerformed
+
+    private void kTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kTextFieldActionPerformed
+
+    private void nTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nTextFieldActionPerformed
+        
+    }//GEN-LAST:event_nTextFieldActionPerformed
+
+    
+ 
+
+    private void nTextFieldInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_nTextFieldInputMethodTextChanged
+                
+    }//GEN-LAST:event_nTextFieldInputMethodTextChanged
+
+    private void nTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nTextFieldKeyTyped
+              
+    }//GEN-LAST:event_nTextFieldKeyTyped
+
+    private void nTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nTextFieldFocusLost
+        try{
+                 n = Integer.parseInt(nTextField.getText().trim());
+                 
+                 System.out.println( n);
+               }catch (NumberFormatException nfe){
+                   System.out.println("cannot enter N -variable try again");
+               }
+    }//GEN-LAST:event_nTextFieldFocusLost
+
+    private void kTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kTextFieldFocusLost
+     try{
+        k = Integer.parseInt(kTextField.getText().trim());
+      System.out.println(k);
+     }catch(NumberFormatException nfe){
+         System.out.println("cannot enter K -variable try again");
+     }
+     
+    }//GEN-LAST:event_kTextFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -180,6 +283,31 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JButton generateButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField kTextField;
+    private javax.swing.JLabel kWindow;
+    private javax.swing.JTextField nTextField;
+    private javax.swing.JLabel nWindow;
     private javax.swing.JTextField variablesWindow;
     // End of variables declaration//GEN-END:variables
+
+    private ArrayList<Integer> generate() {
+        
+        ArrayList<Integer> blocks = new ArrayList<Integer>();
+        Random zo= new Random();
+        int suma = 0;
+        
+                blocks.add(0, 0);
+                for (int i = 0; i < zo.nextInt(k); i++) {
+                 // sum = zo.nextInt(2);
+                   
+                  blocks.add(1);
+                  suma++;
+                }
+                blocks.add(blocks.size(), 0);
+                System.out.println("Ilosc jedynek w bloku: " + (blocks.size() - 2));
+                
+                
+                return blocks;
+    
+    }
 }
