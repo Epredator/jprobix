@@ -18,13 +18,14 @@ import javax.swing.JFrame;
 public class UI extends javax.swing.JFrame {
     int n =2;
     int k =1000;
+    int bigSize =0;
 
     /**
      * Creates new form UI
      */
     public UI() {
         initComponents();
-        setTitle("1.2 Komputerowe generatory liczb losowych");
+        setTitle("1.1 Komputerowe generatory liczb losowych");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600,480);
         setLocationRelativeTo(null);
@@ -49,6 +50,9 @@ public class UI extends javax.swing.JFrame {
         kWindow = new javax.swing.JLabel();
         kTextField = new javax.swing.JTextField();
         nTextField = new javax.swing.JTextField();
+        longestView = new java.awt.Label();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        terminalView = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +74,7 @@ public class UI extends javax.swing.JFrame {
 
         variablesWindow.setText("Puste");
 
-        nWindow.setText("Maksymalna wielkosc n-elementowego ciagu:");
+        nWindow.setText("Wielkosc n-elementowego ciagu:");
 
         kWindow.setText("Maksymalna wielkosc k-elementowych blokow jedynek:");
 
@@ -108,6 +112,13 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        longestView.setAlignment(java.awt.Label.CENTER);
+        longestView.setText("Najwiekszy ciag jedynek");
+
+        terminalView.setColumns(20);
+        terminalView.setRows(5);
+        jScrollPane1.setViewportView(terminalView);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,7 +146,13 @@ public class UI extends javax.swing.JFrame {
                                 .addGap(0, 173, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(variablesWindow)))
+                        .addComponent(variablesWindow))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(longestView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -157,8 +174,14 @@ public class UI extends javax.swing.JFrame {
                 .addComponent(variablesWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(generateButton)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addComponent(longestView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        longestView.getAccessibleContext().setAccessibleName("");
+        longestView.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,11 +207,8 @@ public class UI extends javax.swing.JFrame {
                    //System.out.println(number + " ");
 }*/          
                // int[] results = new int[100];
-                
 
-                
-                 
-               for (int j = 0; j < zo.nextInt(k); j++) {  
+               for (int j = 0; j <= zo.nextInt(k); j++) {  
                 all.addAll(generate());
                }
                 
@@ -202,7 +222,7 @@ public class UI extends javax.swing.JFrame {
     this.variablesWindow.setText(this.variablesWindow.getText() + " " + all);
     System.out.println("Liczba wszystkich elementow ciagu: " + all.size());
     System.out.println("---------------------------");
-
+     bigSize =0;
     }//GEN-LAST:event_generateButtonActionPerformed
 
     private void kTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kTextFieldActionPerformed
@@ -228,7 +248,7 @@ public class UI extends javax.swing.JFrame {
         try{
                  n = Integer.parseInt(nTextField.getText().trim());
                  
-                 System.out.println( n);
+                 System.out.println( n + "Wielkosc n-elementowego ciagu");
                }catch (NumberFormatException nfe){
                    System.out.println("cannot enter N -variable try again");
                }
@@ -237,7 +257,7 @@ public class UI extends javax.swing.JFrame {
     private void kTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kTextFieldFocusLost
      try{
         k = Integer.parseInt(kTextField.getText().trim());
-      System.out.println(k);
+      System.out.println(k + " - Maksymalna wielkosc k-elementowych blokow jedynek");
      }catch(NumberFormatException nfe){
          System.out.println("cannot enter K -variable try again");
      }
@@ -282,11 +302,14 @@ public class UI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton generateButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField kTextField;
     private javax.swing.JLabel kWindow;
+    private java.awt.Label longestView;
     private javax.swing.JTextField nTextField;
     private javax.swing.JLabel nWindow;
+    private javax.swing.JTextArea terminalView;
     private javax.swing.JTextField variablesWindow;
     // End of variables declaration//GEN-END:variables
 
@@ -296,8 +319,9 @@ public class UI extends javax.swing.JFrame {
         Random zo= new Random();
         int suma = 0;
         
+        
                 blocks.add(0, 0);
-                for (int i = 0; i < zo.nextInt(k); i++) {
+                for (int i = 0; i < zo.nextInt(k+1); i++) {
                  // sum = zo.nextInt(2);
                    
                   blocks.add(1);
@@ -306,7 +330,12 @@ public class UI extends javax.swing.JFrame {
                 blocks.add(blocks.size(), 0);
                 System.out.println("Ilosc jedynek w bloku: " + (blocks.size() - 2));
                 
-                
+                if(blocks.size() >= bigSize){
+                    bigSize =  blocks.size();
+                    longestView.setText("Najwiekszy ciag jedynek to: " + String.valueOf((bigSize-2)));
+                   // terminalView.setText
+                  
+                }
                 return blocks;
     
     }
