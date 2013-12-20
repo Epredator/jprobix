@@ -16,16 +16,17 @@ import javax.swing.JFrame;
  * @author epredator
  */
 public class UI extends javax.swing.JFrame {
-    int n =2;
-    int k =1000;
+    int n =10000;
+    int k =10;
     int bigSize =0;
+    ArrayList<Integer> onesValues = new ArrayList<Integer>();
 
     /**
      * Creates new form UI
      */
     public UI() {
         initComponents();
-        setTitle("1.1 Komputerowe generatory liczb losowych");
+        setTitle("Zadanie 1.1 Komputerowe generatory liczb losowych");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600,480);
         setLocationRelativeTo(null);
@@ -42,41 +43,37 @@ public class UI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         generateButton = new javax.swing.JButton();
-        variablesWindow = new javax.swing.JTextField();
         nWindow = new javax.swing.JLabel();
         kWindow = new javax.swing.JLabel();
         kTextField = new javax.swing.JTextField();
         nTextField = new javax.swing.JTextField();
-        longestView = new java.awt.Label();
+        onesBlocksLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        terminalView = new javax.swing.JTextArea();
+        onesBlocksView = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        variablesWindow = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        sizeOnesView = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        longestView = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        sumOnesView = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        mediumOnesView = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Wpisz ciąg zer i jedynek:");
-
-        generateButton.setText("Wygeneruj ciąg zer i jedynek:");
+        generateButton.setLabel("Wygeneruj ciąg zer i jedynek");
         generateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generateButtonActionPerformed(evt);
             }
         });
 
-        variablesWindow.setText("Puste");
-
         nWindow.setText("Wielkosc n-elementowego ciagu:");
 
-        kWindow.setText("Maksymalna wielkosc k-elementowych blokow jedynek:");
+        kWindow.setText("Wielkosc k-elementowych blokow jedynek:");
 
         kTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,29 +109,64 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
-        longestView.setAlignment(java.awt.Label.CENTER);
-        longestView.setText("Najwiekszy ciag jedynek");
+        onesBlocksLabel.setText("Dlugosc kolejnych blokow jedynek:");
+        onesBlocksLabel.setToolTipText("");
 
-        terminalView.setColumns(20);
-        terminalView.setRows(5);
-        jScrollPane1.setViewportView(terminalView);
+        onesBlocksView.setEditable(false);
+        onesBlocksView.setColumns(20);
+        onesBlocksView.setLineWrap(true);
+        onesBlocksView.setRows(5);
+        onesBlocksView.setTabSize(20);
+        jScrollPane1.setViewportView(onesBlocksView);
+
+        variablesWindow.setEditable(false);
+        variablesWindow.setColumns(20);
+        variablesWindow.setLineWrap(true);
+        variablesWindow.setRows(5);
+        jScrollPane2.setViewportView(variablesWindow);
+
+        jLabel2.setText("Najdluzszy ciag jedynek:");
+
+        sizeOnesView.setEditable(false);
+        sizeOnesView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizeOnesViewActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Ilosc ciagow jedynek:");
+
+        longestView.setEditable(false);
+        longestView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                longestViewActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Srednia ciagow jedynek: ");
+
+        sumOnesView.setEditable(false);
+
+        jLabel4.setText("Suma ciagow jedynek: ");
+
+        mediumOnesView.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(generateButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(generateButton))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(kWindow)
@@ -142,27 +174,31 @@ public class UI extends javax.swing.JFrame {
                                         .addGap(29, 29, 29)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(kTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                                            .addComponent(nTextField))))
-                                .addGap(0, 173, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(variablesWindow))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(longestView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                                            .addComponent(nTextField)))
+                                    .addComponent(onesBlocksLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel4)
+                                                    .addComponent(jLabel2)
+                                                    .addComponent(jLabel3))
+                                                .addGap(28, 28, 28))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addGap(18, 18, 18)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(longestView)
+                                            .addComponent(sumOnesView)
+                                            .addComponent(sizeOnesView)
+                                            .addComponent(mediumOnesView, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))))
+                                .addGap(0, 415, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nWindow)
                     .addComponent(nTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -170,59 +206,74 @@ public class UI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kWindow)
                     .addComponent(kTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addComponent(variablesWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(generateButton)
-                .addGap(56, 56, 56)
-                .addComponent(longestView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(onesBlocksLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(longestView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(sumOnesView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(sizeOnesView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(mediumOnesView)
+                            .addComponent(jLabel1))))
+                .addGap(283, 283, 283))
         );
-
-        longestView.getAccessibleContext().setAccessibleName("");
-        longestView.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void generateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButtonActionPerformed
          Random zo= new Random();
          int sum = 0;
+         int sumOnes = 0;
+         float  mediumOnes = 0;
          
          ArrayList<Integer> all = new ArrayList<Integer>();
-         //k - ilosc jedynek
-         //n - ilosc liczb
+        
 
-         /*    int number;
-                int numbers[] = new int[200]; 
-                
-                for (int i=0; i<1000; i++){
-                   number = zo.nextInt(2);
-                   numbers[i] = number;
-                   //System.out.println(number + " ");
-}*/          
-               // int[] results = new int[100];
-
-               for (int j = 0; j <= zo.nextInt(k); j++) {  
+               for (int j = 0; j <= zo.nextInt(n); j++) {  
                 all.addAll(generate());
                }
+                  System.out.println("Ilosc wszystkich jedynek: " + onesValues);
+                  onesBlocksView.setText("" + onesValues);
+                  sizeOnesView.setText(""+onesValues.size());
+                  
+                  
+                  for(int i = 0; i < all.size(); i++)
+                        {
+                            sumOnes = sumOnes + all.get(i);
+                        }
                 
-              
-             
-                
-        
+                  mediumOnes = (float) sumOnes/onesValues.size();
+                  
+        sumOnesView.setText(""+sumOnes);
+        mediumOnesView.setText(""+mediumOnes);
         this.variablesWindow.setText("");
         
     System.out.println(all + " ");
     this.variablesWindow.setText(this.variablesWindow.getText() + " " + all);
     System.out.println("Liczba wszystkich elementow ciagu: " + all.size());
+    System.out.println("Laczna suma jedynek: " + sumOnes);
+     System.out.println("Srednia wartosc jedynek: " + mediumOnes);
     System.out.println("---------------------------");
      bigSize =0;
+     onesValues.clear();
+    
     }//GEN-LAST:event_generateButtonActionPerformed
 
     private void kTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kTextFieldActionPerformed
@@ -264,6 +315,14 @@ public class UI extends javax.swing.JFrame {
      
     }//GEN-LAST:event_kTextFieldFocusLost
 
+    private void sizeOnesViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeOnesViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sizeOnesViewActionPerformed
+
+    private void longestViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_longestViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_longestViewActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -302,15 +361,22 @@ public class UI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton generateButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField kTextField;
     private javax.swing.JLabel kWindow;
-    private java.awt.Label longestView;
+    private javax.swing.JTextField longestView;
+    private javax.swing.JTextField mediumOnesView;
     private javax.swing.JTextField nTextField;
     private javax.swing.JLabel nWindow;
-    private javax.swing.JTextArea terminalView;
-    private javax.swing.JTextField variablesWindow;
+    private javax.swing.JLabel onesBlocksLabel;
+    private javax.swing.JTextArea onesBlocksView;
+    private javax.swing.JTextField sizeOnesView;
+    private javax.swing.JTextField sumOnesView;
+    private javax.swing.JTextArea variablesWindow;
     // End of variables declaration//GEN-END:variables
 
     private ArrayList<Integer> generate() {
@@ -326,13 +392,15 @@ public class UI extends javax.swing.JFrame {
                    
                   blocks.add(1);
                   suma++;
+                 
                 }
+                onesValues.add(blocks.size()-1);
                 blocks.add(blocks.size(), 0);
                 System.out.println("Ilosc jedynek w bloku: " + (blocks.size() - 2));
                 
                 if(blocks.size() >= bigSize){
                     bigSize =  blocks.size();
-                    longestView.setText("Najwiekszy ciag jedynek to: " + String.valueOf((bigSize-2)));
+                    longestView.setText("" + String.valueOf((bigSize-2)));
                    // terminalView.setText
                   
                 }
