@@ -20,7 +20,15 @@ public class UI extends javax.swing.JFrame {
     int n =10000;
     int k =10;
     int bigSize =0;
-    ArrayList<Integer> onesValues = new ArrayList<Integer>();
+    ArrayList<Integer> uList = new ArrayList<Integer>();
+    
+    int m = 1;
+    int c = 0;
+    int am = 1;
+    ArrayList<Integer> ziarno = new ArrayList<Integer>();
+     int size = 1000;
+    
+    
 
     /**
      * Creates new form UI
@@ -52,11 +60,25 @@ public class UI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         aView = new javax.swing.JTextField();
+        cView = new javax.swing.JTextField();
+        mView = new javax.swing.JTextField();
+        zView = new javax.swing.JTextField();
+        rView = new javax.swing.JTextField();
+        sizeView = new javax.swing.JTextField();
+        jButtonRun = new javax.swing.JButton();
+        amView1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         aView1 = new javax.swing.JTextField();
         aView2 = new javax.swing.JTextField();
         aView3 = new javax.swing.JTextField();
-        aView4 = new javax.swing.JTextField();
-        aView5 = new javax.swing.JTextField();
+        zView1 = new javax.swing.JTextField();
+        zView2 = new javax.swing.JTextField();
+        zView3 = new javax.swing.JTextField();
+        rView1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -65,11 +87,11 @@ public class UI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel6.setText("Podaj parametry a1,a2,a3,a4:");
+        jLabel6.setText("Podaj parametry a1 a2 a3 a4 :");
 
-        jLabel7.setText("Podaj parametr c:");
+        jLabel7.setText("Podaj parametr c (domyślnie 0) :");
 
-        jLabel8.setText("Podaj parametr m:");
+        jLabel8.setText("Podaj parametr m (domyślnie 1) :");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Wartości początkowe generatora (ziarno):");
@@ -83,10 +105,92 @@ public class UI extends javax.swing.JFrame {
                 aViewActionPerformed(evt);
             }
         });
+        aView.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                aViewFocusLost(evt);
+            }
+        });
+
+        cView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cViewActionPerformed(evt);
+            }
+        });
+        cView.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cViewFocusLost(evt);
+            }
+        });
+
+        mView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mViewActionPerformed(evt);
+            }
+        });
+        mView.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                mViewFocusLost(evt);
+            }
+        });
+
+        zView.setToolTipText("podaj poczatkowe ziarno x1");
+        zView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zViewActionPerformed(evt);
+            }
+        });
+        zView.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                zViewFocusLost(evt);
+            }
+        });
+
+        rView.setToolTipText("podaj parametr a");
+        rView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rViewActionPerformed(evt);
+            }
+        });
+
+        sizeView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizeViewActionPerformed(evt);
+            }
+        });
+        sizeView.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                sizeViewFocusLost(evt);
+            }
+        });
+
+        jButtonRun.setText("WYGENERUJ");
+        jButtonRun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRunActionPerformed(evt);
+            }
+        });
+
+        amView1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amView1ActionPerformed(evt);
+            }
+        });
+        amView1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                amView1FocusLost(evt);
+            }
+        });
+
+        jLabel9.setText("Podaj parametr a :");
 
         aView1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aView1ActionPerformed(evt);
+            }
+        });
+        aView1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                aView1FocusLost(evt);
             }
         });
 
@@ -95,24 +199,73 @@ public class UI extends javax.swing.JFrame {
                 aView2ActionPerformed(evt);
             }
         });
+        aView2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                aView2FocusLost(evt);
+            }
+        });
 
         aView3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aView3ActionPerformed(evt);
             }
         });
-
-        aView4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aView4ActionPerformed(evt);
+        aView3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                aView3FocusLost(evt);
             }
         });
 
-        aView5.addActionListener(new java.awt.event.ActionListener() {
+        zView1.setToolTipText("podaj poczatkowe ziarno x2");
+        zView1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aView5ActionPerformed(evt);
+                zView1ActionPerformed(evt);
             }
         });
+        zView1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                zView1FocusLost(evt);
+            }
+        });
+
+        zView2.setToolTipText("podaj poczatkowe ziarno x3");
+        zView2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zView2ActionPerformed(evt);
+            }
+        });
+        zView2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                zView2FocusLost(evt);
+            }
+        });
+
+        zView3.setToolTipText("podaj poczatkowe ziarno x4");
+        zView3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zView3ActionPerformed(evt);
+            }
+        });
+        zView3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                zView3FocusLost(evt);
+            }
+        });
+
+        rView1.setToolTipText("podaj parametr b");
+        rView1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rView1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("a1");
+
+        jLabel5.setText("a2");
+
+        jLabel10.setText("a3");
+
+        jLabel11.setText("a4");
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -136,45 +289,95 @@ public class UI extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel2))
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(aView, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aView1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aView2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aView3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aView4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(aView5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(236, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sizeView)
+                    .addComponent(cView)
+                    .addComponent(mView)
+                    .addComponent(jButtonRun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(amView1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(aView, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(aView1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(aView2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(aView3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(zView, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(zView1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rView)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rView1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(zView2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(zView3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel4)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel5)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addGap(12, 12, 12)))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(aView))
+                    .addComponent(aView)
+                    .addComponent(aView1)
+                    .addComponent(aView2)
+                    .addComponent(aView3))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aView1)
+                    .addComponent(amView1)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cView)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aView2)
+                    .addComponent(mView)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aView3)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(zView)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zView1)
+                    .addComponent(zView2)
+                    .addComponent(zView3))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aView4)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(rView)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rView1))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aView5)
+                    .addComponent(sizeView)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(91, 91, 91))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonRun, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("Wartości początkowe \ngeneratora (ziarno):");
@@ -187,25 +390,171 @@ public class UI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_aViewActionPerformed
 
+    private void cViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cViewActionPerformed
+
+    private void mViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mViewActionPerformed
+
+    private void zViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zViewActionPerformed
+
+    private void rViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rViewActionPerformed
+
+    private void sizeViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeViewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sizeViewActionPerformed
+
+    private void aViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aViewFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aViewFocusLost
+
+    private void mViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mViewFocusLost
+        
+        try{
+        m = Integer.parseInt(mView.getText().trim());
+        System.out.println("Variable m is set " + m);
+        }catch(NumberFormatException nfe){
+             System.out.println("cannot enter variable" + nfe);
+        }
+    }//GEN-LAST:event_mViewFocusLost
+
+    private void cViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cViewFocusLost
+         try{
+        c = Integer.parseInt(cView.getText().trim());
+        System.out.println("Variable c is set to " + c);
+        }catch(NumberFormatException nfe){
+             System.out.println("cannot enter variable" + nfe);
+        }
+    }//GEN-LAST:event_cViewFocusLost
+
+    private void zViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zViewFocusLost
+      
+       
+    }//GEN-LAST:event_zViewFocusLost
+
+    @SuppressWarnings("empty-statement")
+    private void jButtonRunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRunActionPerformed
+      uList.clear();
+      ziarno.clear();     
+      ziarno.add(5);
+      ziarno.add(4);
+      ziarno.add(2);
+      ziarno.add(8);
+      
+      uList.add(8);
+      uList.add(76);
+      uList.add(56);
+      uList.add(45);
+      
+       int xN = 0;
+       
+       if(ziarno.isEmpty()!= true){
+       xN = ziarno.get(ziarno.size()-1);
+       uList.addAll(ziarno);
+       }else{
+            System.out.println( "Brak ziarna " + xN);
+       }
+               
+       
+        for (int i = 0 ; i < size ;  i++){
+             //xN = (xN + c) % m;
+             
+             uList.add((ziarno.get(ziarno.size()-1) * uList.get(uList.size()-1) +  ziarno.get(ziarno.size()-2) * uList.get(uList.size()-2) +  ziarno.get(ziarno.size()-3) * uList.get(uList.size()-3) +  ziarno.get(ziarno.size()-4) * uList.get(uList.size()-4)  + c) % m    );
+             //uList.add(xN); 
+           // for ( int j : ziarno){
+           //     uList.add(j);
+           // }
+            
+            
+        //uList.add(n);
+        
+        
+        }
+       System.out.println( uList);
+                
+                
+                
+    }//GEN-LAST:event_jButtonRunActionPerformed
+
+    private void sizeViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sizeViewFocusLost
+         try{
+        size = Integer.parseInt(sizeView.getText().trim());
+        System.out.println("Variable size is set " + size);
+        }catch(NumberFormatException nfe){
+             System.out.println("cannot enter variable" + nfe);
+        }
+    }//GEN-LAST:event_sizeViewFocusLost
+
+    private void amView1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amView1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_amView1ActionPerformed
+
+    private void amView1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_amView1FocusLost
+       try{
+        am = Integer.parseInt(amView1.getText().trim());
+        System.out.println("Variable am is set " + am);
+        }catch(NumberFormatException nfe){
+             System.out.println("cannot enter variable" + nfe);
+        }
+    }//GEN-LAST:event_amView1FocusLost
+
     private void aView1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aView1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aView1ActionPerformed
+
+    private void aView1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aView1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aView1FocusLost
 
     private void aView2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aView2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aView2ActionPerformed
 
+    private void aView2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aView2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aView2FocusLost
+
     private void aView3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aView3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aView3ActionPerformed
 
-    private void aView4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aView4ActionPerformed
+    private void aView3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aView3FocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_aView4ActionPerformed
+    }//GEN-LAST:event_aView3FocusLost
 
-    private void aView5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aView5ActionPerformed
+    private void zView1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zView1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_aView5ActionPerformed
+    }//GEN-LAST:event_zView1ActionPerformed
+
+    private void zView1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zView1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zView1FocusLost
+
+    private void zView2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zView2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zView2ActionPerformed
+
+    private void zView2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zView2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zView2FocusLost
+
+    private void zView3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zView3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zView3ActionPerformed
+
+    private void zView3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_zView3FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zView3FocusLost
+
+    private void rView1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rView1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rView1ActionPerformed
 
     
  
@@ -250,18 +599,32 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JTextField aView1;
     private javax.swing.JTextField aView2;
     private javax.swing.JTextField aView3;
-    private javax.swing.JTextField aView4;
-    private javax.swing.JTextField aView5;
+    private javax.swing.JTextField amView1;
+    private javax.swing.JTextField cView;
+    private javax.swing.JButton jButtonRun;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField mView;
+    private javax.swing.JTextField rView;
+    private javax.swing.JTextField rView1;
+    private javax.swing.JTextField sizeView;
+    private javax.swing.JTextField zView;
+    private javax.swing.JTextField zView1;
+    private javax.swing.JTextField zView2;
+    private javax.swing.JTextField zView3;
     // End of variables declaration//GEN-END:variables
 
    
