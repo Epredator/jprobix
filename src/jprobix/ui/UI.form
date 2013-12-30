@@ -58,7 +58,6 @@
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -66,33 +65,32 @@
                   <Component id="cView" alignment="0" max="32767" attributes="0"/>
                   <Component id="mView" alignment="0" max="32767" attributes="0"/>
                   <Component id="jButtonRun" alignment="0" max="32767" attributes="0"/>
-                  <Component id="amView1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="aView" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="aView1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="aView2" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="aView3" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="aView4" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="zView" pref="40" max="32767" attributes="0"/>
+                              <Component id="xView1" pref="40" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="zView1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="xView2" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="rView" max="32767" attributes="0"/>
+                              <Component id="iView" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="rView1" max="32767" attributes="0"/>
+                              <Component id="jView" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="zView2" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="xView3" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="zView3" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="xView4" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
@@ -106,7 +104,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="295" max="32767" attributes="0"/>
+              <EmptySpace pref="268" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -122,39 +120,34 @@
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" max="32767" attributes="0"/>
-                  <Component id="aView" alignment="3" max="32767" attributes="0"/>
                   <Component id="aView1" alignment="3" max="32767" attributes="0"/>
                   <Component id="aView2" alignment="3" max="32767" attributes="0"/>
                   <Component id="aView3" alignment="3" max="32767" attributes="0"/>
+                  <Component id="aView4" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="amView1" alignment="3" max="32767" attributes="0"/>
-                  <Component id="jLabel9" alignment="3" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cView" alignment="3" max="32767" attributes="0"/>
                   <Component id="jLabel7" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="mView" alignment="3" max="32767" attributes="0"/>
                   <Component id="jLabel8" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="zView" alignment="3" max="32767" attributes="0"/>
+                  <Component id="xView1" alignment="3" max="32767" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-                  <Component id="zView1" alignment="3" max="32767" attributes="0"/>
-                  <Component id="zView2" alignment="3" max="32767" attributes="0"/>
-                  <Component id="zView3" alignment="3" max="32767" attributes="0"/>
+                  <Component id="xView2" alignment="3" max="32767" attributes="0"/>
+                  <Component id="xView3" alignment="3" max="32767" attributes="0"/>
+                  <Component id="xView4" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rView" alignment="3" max="32767" attributes="0"/>
+                  <Component id="iView" alignment="3" max="32767" attributes="0"/>
                   <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
-                  <Component id="rView1" alignment="3" max="32767" attributes="0"/>
+                  <Component id="jView" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -196,7 +189,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Parametry rozk&#x142;adu jednostajnego a,b:"/>
+        <Property name="text" type="java.lang.String" value="Parametry rozk&#x142;adu jednostajnego U(i,j) :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -204,10 +197,10 @@
         <Property name="text" type="java.lang.String" value="Liczba wygenerowanych zmiennych:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="aView">
+    <Component class="javax.swing.JTextField" name="aView1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aViewActionPerformed"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="aViewFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aView1ActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="aView1FocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cView">
@@ -222,21 +215,22 @@
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mViewFocusLost"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="zView">
+    <Component class="javax.swing.JTextField" name="xView1">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="podaj poczatkowe ziarno x1"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zViewActionPerformed"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="zViewFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xView1ActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="xView1FocusLost"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="rView">
+    <Component class="javax.swing.JTextField" name="iView">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="podaj parametr a"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rViewActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iViewActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="iViewFocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="sizeView">
@@ -253,23 +247,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRunActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="amView1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="amView1ActionPerformed"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="amView1FocusLost"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Podaj parametr a :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="aView1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aView1ActionPerformed"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="aView1FocusLost"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="aView2">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aView2ActionPerformed"/>
@@ -282,39 +259,46 @@
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="aView3FocusLost"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="zView1">
+    <Component class="javax.swing.JTextField" name="aView4">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aView4ActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="aView4FocusLost"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="xView2">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="podaj poczatkowe ziarno x2"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zView1ActionPerformed"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="zView1FocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xView2ActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="xView2FocusLost"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="zView2">
+    <Component class="javax.swing.JTextField" name="xView3">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="podaj poczatkowe ziarno x3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zView2ActionPerformed"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="zView2FocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xView3ActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="xView3FocusLost"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="zView3">
+    <Component class="javax.swing.JTextField" name="xView4">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="podaj poczatkowe ziarno x4"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zView3ActionPerformed"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="zView3FocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xView4ActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="xView4FocusLost"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="rView1">
+    <Component class="javax.swing.JTextField" name="jView">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="podaj parametr b"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rView1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jViewActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jViewFocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
