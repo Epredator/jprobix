@@ -30,14 +30,14 @@ import org.jfree.util.ShapeUtilities;
  *
  * @author epredator
  */
-public class SPlotFinal extends ApplicationFrame {
+public class SPlotFinal extends JPanel {
     
     
-    public SPlotFinal(String s){
-        super(s);
+    public SPlotFinal(){
+        super();
         JPanel jpanel = creteDemoPanel();
         jpanel.setPreferredSize(new Dimension(640, 480));
-        setContentPane(jpanel);
+        add(jpanel);
     }
     
     
@@ -49,7 +49,7 @@ public class SPlotFinal extends ApplicationFrame {
                     "X", 
                     "Y", 
                     samplexydataset2(), 
-                    PlotOrientation.HORIZONTAL, 
+                    PlotOrientation.VERTICAL, 
                     true, 
                     true, 
                     false
@@ -60,7 +60,7 @@ public class SPlotFinal extends ApplicationFrame {
         xyPlot.setDomainCrosshairVisible(true);
         xyPlot.setRangeCrosshairVisible(true);
         XYItemRenderer renderer = xyPlot.getRenderer();
-       renderer.setSeriesShape(0, cross);
+       renderer.setSeriesShape(5, cross);
        renderer.setSeriesPaint(0, Color.YELLOW);
         
         XYDotRenderer xydotrenderer = new XYDotRenderer();
@@ -95,11 +95,11 @@ public class SPlotFinal extends ApplicationFrame {
         
     }
     
-    public static void main(String args[]){
-        SPlotFinal scatterplotdemo4 = new SPlotFinal("Scatter Plot Demo 4");
-        scatterplotdemo4.pack();
-        RefineryUtilities.centerFrameOnScreen(scatterplotdemo4);
-        scatterplotdemo4.setVisible(true);
-    }
+//    public static void main(String args[]){
+//        SPlotFinal scatterplotdemo4 = new SPlotFinal("Scatter Plot Demo 4");
+//        scatterplotdemo4.pack();
+//        RefineryUtilities.centerFrameOnScreen(scatterplotdemo4);
+//        scatterplotdemo4.setVisible(true);
+//    }
     
 }

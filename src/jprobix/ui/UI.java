@@ -6,11 +6,28 @@
 
 package jprobix.ui;
 
-import static java.lang.Math.pow;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.PopupMenu;
+import java.awt.Shape;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import static jprobix.ui.SPlotFinal.creteDemoPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.data.xy.DefaultXYDataset;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.ui.RefineryUtilities;
+import org.jfree.util.ShapeUtilities;
 
 /**
  *
@@ -39,6 +56,20 @@ public class UI extends javax.swing.JFrame {
     
      private Integer rozkladI = 0;
      private Integer rozkladJ = 100;
+     
+             
+        
+    XYDataset ds = createDataset();
+    JFreeChart chart = ChartFactory.createScatterPlot
+        ("Test Chart", "x", "y", ds, PlotOrientation.VERTICAL, true, true, false);
+    
+    Shape cross = ShapeUtilities.createDiagonalCross(3,2);
+    XYPlot xyPlot = (XYPlot) chart.getPlot();
+    XYItemRenderer renderer = xyPlot.getRenderer();
+   
+      
+    
+    ChartPanel cp = new ChartPanel(chart);
     
     
 
@@ -49,11 +80,14 @@ public class UI extends javax.swing.JFrame {
         initComponents();
         setTitle("Zadanie 1.4 Komputerowe generatory liczb losowych");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800,480);
+        //setSize(800,480);
         setLocationRelativeTo(null);
-        Chart demo = new Chart("Comparison", "Wchich operating system are you using?");
-        demo.pack();
-        demo.setVisible(true);
+        //jPanelCrossPoints.add(cp);
+      
+       // scatterplotdemo4.pack();
+        //RefineryUtilities.centerFrameOnScreen(scatterplotdemo4);
+        //scatterplotdemo4.setVisible(true);
+        
     }
     
  
@@ -96,6 +130,9 @@ public class UI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanelCrossPoints = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -291,6 +328,36 @@ public class UI extends javax.swing.JFrame {
 
         jLabel11.setText("a4");
 
+        javax.swing.GroupLayout jPanelCrossPointsLayout = new javax.swing.GroupLayout(jPanelCrossPoints);
+        jPanelCrossPoints.setLayout(jPanelCrossPointsLayout);
+        jPanelCrossPointsLayout.setHorizontalGroup(
+            jPanelCrossPointsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+        );
+        jPanelCrossPointsLayout.setVerticalGroup(
+            jPanelCrossPointsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 354, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("histogram", jPanelCrossPoints);
+        jTabbedPane2.addTab("wygenerowane punkty", cp);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jTabbedPane2)
+                .addContainerGap())
+        );
+
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
@@ -352,7 +419,9 @@ public class UI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel11)
                         .addGap(12, 12, 12)))
-                .addContainerGap(501, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,7 +446,7 @@ public class UI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mView)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(102, 102, 102)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(xView1)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -396,6 +465,10 @@ public class UI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButtonRun, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("Wartości początkowe \ngeneratora (ziarno):");
@@ -508,7 +581,15 @@ public class UI extends javax.swing.JFrame {
         }
        System.out.println( uList);
                 
-                
+        SPlotFinal scatterplotdemo4 = new SPlotFinal();
+         //scatterplotdemo4.pack();
+        //RefineryUtilities.centerFrameOnScreen(scatterplotdemo4);
+       // scatterplotdemo4.setVisible(true);   
+       
+        JPanel jpanel3 = creteDemoPanel();
+        jpanel3.setPreferredSize(new Dimension(640, 480));     
+      
+        
                 
     }//GEN-LAST:event_jButtonRunActionPerformed
 
@@ -688,8 +769,11 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelCrossPoints;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextField jView;
     private javax.swing.JTextField mView;
@@ -699,6 +783,44 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JTextField xView3;
     private javax.swing.JTextField xView4;
     // End of variables declaration//GEN-END:variables
+
+    private XYDataset createDataset() {
+       
+        DefaultXYDataset ds = new DefaultXYDataset();
+        double[][] data = { {0.1, 0.2, 0.3}, {1,2,3}};
+        ds.addSeries("series1", data);
+        
+        int cols = 20;
+        int rows = 20;
+        double[][]values  = new double[cols][rows];
+        
+        XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
+        XYSeries series = new XYSeries("Random");
+        
+        Random rand = new Random();
+        for(int i = 0 ; i < values.length ; i++){
+            for(int j = 0 ; j<values.length; j++){
+                double x = Math.round(rand.nextDouble() * 500 );
+                double y = Math.round(rand.nextDouble() * 500);
+                
+                series.add(x,y);
+            }
+        }
+        
+         xySeriesCollection.addSeries(series);
+        return xySeriesCollection;
+        
+        
+        
+        
+        
+        
+        
+        //return ds;
+    
+    }
+
+ 
 
    
 }

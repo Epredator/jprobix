@@ -6,7 +6,9 @@
 
 package jprobix;
 
+import jprobix.ui.SPlotFinal;
 import jprobix.ui.UI;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  *
@@ -21,7 +23,7 @@ public class JProbiX {
           java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new UI().setVisible(true);
+               new UI().setVisible(true);
               
                 
             }
