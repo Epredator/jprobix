@@ -62,15 +62,11 @@ public class UI extends javax.swing.JFrame {
     XYDataset ds = createDataset();
     JFreeChart chart = ChartFactory.createScatterPlot
         ("Test Chart", "x", "y", ds, PlotOrientation.VERTICAL, true, true, false);
-    
     Shape cross = ShapeUtilities.createDiagonalCross(3,2);
     XYPlot xyPlot = (XYPlot) chart.getPlot();
-    XYItemRenderer renderer = xyPlot.getRenderer();
-   
-      
-    
+    XYItemRenderer renderer = xyPlot.getRenderer(); 
     ChartPanel cp = new ChartPanel(chart);
-    
+   
     
 
     /**
@@ -588,7 +584,7 @@ public class UI extends javax.swing.JFrame {
        
         JPanel jpanel3 = creteDemoPanel();
         jpanel3.setPreferredSize(new Dimension(640, 480));  
-        
+         
          ds = createDataset();
           cp.repaint();
         
@@ -606,7 +602,7 @@ public class UI extends javax.swing.JFrame {
     
     jTabbedPane2.removeAll();
      jTabbedPane2.addTab("wygenerowane punkty", cp);
-    
+    cp.setMouseWheelEnabled(true);
         
         // jTabbedPane2.addTab("wygenerowane punkty2", cp);
     }//GEN-LAST:event_jButtonRunActionPerformed
@@ -804,8 +800,8 @@ public class UI extends javax.swing.JFrame {
 
     private XYDataset createDataset() {
         
-        int cols = 20;
-        int rows = 20;
+        int cols = 100;
+        int rows = 100;
         double[][]values  = new double[cols][rows];
         
         XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
