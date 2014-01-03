@@ -581,16 +581,34 @@ public class UI extends javax.swing.JFrame {
         }
        System.out.println( uList);
                 
-        SPlotFinal scatterplotdemo4 = new SPlotFinal();
+        //SPlotFinal scatterplotdemo4 = new SPlotFinal();
          //scatterplotdemo4.pack();
         //RefineryUtilities.centerFrameOnScreen(scatterplotdemo4);
        // scatterplotdemo4.setVisible(true);   
        
         JPanel jpanel3 = creteDemoPanel();
-        jpanel3.setPreferredSize(new Dimension(640, 480));     
-      
+        jpanel3.setPreferredSize(new Dimension(640, 480));  
         
-                
+         ds = createDataset();
+          cp.repaint();
+        
+          chart = ChartFactory.createScatterPlot
+        ("Test Chart", "x", "y", ds, PlotOrientation.VERTICAL, true, true, false);
+    
+     cross = ShapeUtilities.createDiagonalCross(3,2);
+     xyPlot = (XYPlot) chart.getPlot();
+     renderer = xyPlot.getRenderer();
+   
+       cp.repaint();
+    
+     cp = new ChartPanel(chart);
+     cp.repaint();
+    
+    jTabbedPane2.removeAll();
+     jTabbedPane2.addTab("wygenerowane punkty", cp);
+    
+        
+        // jTabbedPane2.addTab("wygenerowane punkty2", cp);
     }//GEN-LAST:event_jButtonRunActionPerformed
 
     private void sizeViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sizeViewFocusLost
@@ -785,10 +803,6 @@ public class UI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private XYDataset createDataset() {
-       
-        DefaultXYDataset ds = new DefaultXYDataset();
-        double[][] data = { {0.1, 0.2, 0.3}, {1,2,3}};
-        ds.addSeries("series1", data);
         
         int cols = 20;
         int rows = 20;
@@ -798,26 +812,20 @@ public class UI extends javax.swing.JFrame {
         XYSeries series = new XYSeries("Random");
         
         Random rand = new Random();
-        for(int i = 0 ; i < values.length ; i++){
-            for(int j = 0 ; j<values.length; j++){
-                double x = Math.round(rand.nextDouble() * 500 );
-                double y = Math.round(rand.nextDouble() * 500);
+        for(int i = 0 ; i < uList.size() ; i++){
+            for(int j = 0 ; j<uList.size(); j++){
+                double x = uList.get(j);
+                System.out.println(x);
+                double y = uList.get(i);
+                 System.out.println(y);
                 
                 series.add(x,y);
             }
         }
         
-         xySeriesCollection.addSeries(series);
+        xySeriesCollection.addSeries(series);
+        System.out.println(xySeriesCollection);
         return xySeriesCollection;
-        
-        
-        
-        
-        
-        
-        
-        //return ds;
-    
     }
 
  
