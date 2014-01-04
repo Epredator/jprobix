@@ -6,11 +6,7 @@
 
 package jprobix.ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.PopupMenu;
-import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JFrame;
@@ -19,22 +15,24 @@ import static jprobix.ui.SPlotFinal.creteDemoPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
-import org.jfree.data.xy.DefaultXYDataset;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import org.jfree.ui.RefineryUtilities;
-import org.jfree.util.ShapeUtilities;
+
 
 /**
  *
  * @author epredator
  */
 public class UI extends javax.swing.JFrame {
-    int n =10000;
+    int n =100;
     int k =10;
     int bigSize =0;
     ArrayList<Integer> uList = new ArrayList<Integer>();
@@ -61,13 +59,35 @@ public class UI extends javax.swing.JFrame {
         
     XYDataset ds = createDataset();
     JFreeChart chart = ChartFactory.createScatterPlot
-        ("Test Chart", "x", "y", ds, PlotOrientation.VERTICAL, true, true, false);
-    Shape cross = ShapeUtilities.createDiagonalCross(3,2);
+        (
+                "Test Chart",
+                "x",
+                "y",
+                ds,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
+        );
     XYPlot xyPlot = (XYPlot) chart.getPlot();
     XYItemRenderer renderer = xyPlot.getRenderer(); 
     ChartPanel cp = new ChartPanel(chart);
-   
     
+    
+   CategoryDataset cdb = createDatasetBar();
+   JFreeChart chartBar = ChartFactory.createBarChart(
+            "Bar Chart Demo 1",       // chart title
+            "Category",               // domain axis label
+            "Value",                  // range axis label
+            cdb,                  // data
+            PlotOrientation.VERTICAL, // orientation
+            true,                     // include legend
+            true,                     // tooltips?
+            false                     // URLs?
+        );
+    CategoryPlot PlotBar = (CategoryPlot) chartBar.getPlot();
+    BarRenderer rendererBar = (BarRenderer) PlotBar.getRenderer();
+    ChartPanel chartPanelBar = new ChartPanel(chartBar);
 
     /**
      * Creates new form UI
@@ -128,7 +148,6 @@ public class UI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanelCrossPoints = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -324,19 +343,7 @@ public class UI extends javax.swing.JFrame {
 
         jLabel11.setText("a4");
 
-        javax.swing.GroupLayout jPanelCrossPointsLayout = new javax.swing.GroupLayout(jPanelCrossPoints);
-        jPanelCrossPoints.setLayout(jPanelCrossPointsLayout);
-        jPanelCrossPointsLayout.setHorizontalGroup(
-            jPanelCrossPointsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
-        );
-        jPanelCrossPointsLayout.setVerticalGroup(
-            jPanelCrossPointsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
-        );
-
-        jTabbedPane2.addTab("histogram", jPanelCrossPoints);
-        jTabbedPane2.addTab("wygenerowane punkty", cp);
+        jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -353,6 +360,9 @@ public class UI extends javax.swing.JFrame {
                 .addComponent(jTabbedPane2)
                 .addContainerGap())
         );
+
+        jTabbedPane2.addTab("wygenerowane punkty", cp);
+        jTabbedPane2.addTab("histogram", chartPanelBar);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -591,7 +601,6 @@ public class UI extends javax.swing.JFrame {
           chart = ChartFactory.createScatterPlot
         ("Test Chart", "x", "y", ds, PlotOrientation.VERTICAL, true, true, false);
     
-     cross = ShapeUtilities.createDiagonalCross(3,2);
      xyPlot = (XYPlot) chart.getPlot();
      renderer = xyPlot.getRenderer();
    
@@ -600,8 +609,9 @@ public class UI extends javax.swing.JFrame {
      cp = new ChartPanel(chart);
      cp.repaint();
     
-    jTabbedPane2.removeAll();
+     jTabbedPane2.removeAll();
      jTabbedPane2.addTab("wygenerowane punkty", cp);
+
     cp.setMouseWheelEnabled(true);
         
         // jTabbedPane2.addTab("wygenerowane punkty2", cp);
@@ -784,7 +794,6 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelCrossPoints;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
@@ -822,6 +831,45 @@ public class UI extends javax.swing.JFrame {
         xySeriesCollection.addSeries(series);
         System.out.println(xySeriesCollection);
         return xySeriesCollection;
+    }
+
+    private static CategoryDataset createDatasetBar() {
+
+        // row keys...
+        String series1 = "First";
+        String series2 = "Second";
+        String series3 = "Third";
+
+        // column keys...
+        String category1 = "Category 1";
+        String category2 = "Category 2";
+        String category3 = "Category 3";
+        String category4 = "Category 4";
+        String category5 = "Category 5";
+
+        // create the dataset...
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        dataset.addValue(1.0, series1, category1);
+        dataset.addValue(4.0, series1, category2);
+        dataset.addValue(3.0, series1, category3);
+        dataset.addValue(5.0, series1, category4);
+        dataset.addValue(5.0, series1, category5);
+
+        dataset.addValue(5.0, series2, category1);
+        dataset.addValue(7.0, series2, category2);
+        dataset.addValue(6.0, series2, category3);
+        dataset.addValue(8.0, series2, category4);
+        dataset.addValue(4.0, series2, category5);
+
+        dataset.addValue(4.0, series3, category1);
+        dataset.addValue(3.0, series3, category2);
+        dataset.addValue(2.0, series3, category3);
+        dataset.addValue(3.0, series3, category4);
+        dataset.addValue(6.0, series3, category5);
+
+        return dataset;
+
     }
 
  
