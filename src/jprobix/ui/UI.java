@@ -19,9 +19,12 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.xy.XYBarRenderer;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.xy.IntervalXYDataset;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -74,10 +77,11 @@ public class UI extends javax.swing.JFrame {
     ChartPanel cp = new ChartPanel(chart);
     
     
-   CategoryDataset cdb = createDatasetBar();
-   JFreeChart chartBar = ChartFactory.createBarChart(
+   IntervalXYDataset cdb = createDatasetBar();
+   JFreeChart chartBar = ChartFactory.createXYBarChart(
             "Bar Chart Demo 1",       // chart title
             "Category",               // domain axis label
+            false,
             "Value",                  // range axis label
             cdb,                  // data
             PlotOrientation.VERTICAL, // orientation
@@ -85,8 +89,8 @@ public class UI extends javax.swing.JFrame {
             true,                     // tooltips?
             false                     // URLs?
         );
-    CategoryPlot PlotBar = (CategoryPlot) chartBar.getPlot();
-    BarRenderer rendererBar = (BarRenderer) PlotBar.getRenderer();
+    XYPlot PlotBar = (XYPlot) chartBar.getPlot();
+    XYBarRenderer rendererBar = (XYBarRenderer) PlotBar.getRenderer();
     ChartPanel chartPanelBar = new ChartPanel(chartBar);
 
     /**
@@ -587,24 +591,28 @@ public class UI extends javax.swing.JFrame {
         }
        System.out.println( uList);
                 
-        //SPlotFinal scatterplotdemo4 = new SPlotFinal();
-         //scatterplotdemo4.pack();
-        //RefineryUtilities.centerFrameOnScreen(scatterplotdemo4);
-       // scatterplotdemo4.setVisible(true);   
        
         JPanel jpanel3 = creteDemoPanel();
         jpanel3.setPreferredSize(new Dimension(640, 480));  
-         
+       
          ds = createDataset();
-          cp.repaint();
-        
-          chart = ChartFactory.createScatterPlot
-        ("Test Chart", "x", "y", ds, PlotOrientation.VERTICAL, true, true, false);
+         cp.repaint();
+         chart = ChartFactory.createScatterPlot
+          (
+                  "Test Chart",
+                  "x",
+                  "y",
+                  ds,
+                  PlotOrientation.VERTICAL,
+                  true,
+                  true,
+                  false
+          );
     
      xyPlot = (XYPlot) chart.getPlot();
      renderer = xyPlot.getRenderer();
    
-       cp.repaint();
+     cp.repaint();
     
      cp = new ChartPanel(chart);
      cp.repaint();
@@ -613,8 +621,25 @@ public class UI extends javax.swing.JFrame {
      jTabbedPane2.addTab("wygenerowane punkty", cp);
 
     cp.setMouseWheelEnabled(true);
+    
+    
+   cdb = createDatasetBar();
+   chartBar = ChartFactory.createXYBarChart(
+            "Bar Chart Demo 1",       // chart title
+            "Category",               // domain axis label
+            false,
+            "Value",                  // range axis label
+            cdb,                  // data
+            PlotOrientation.VERTICAL, // orientation
+            true,                     // include legend
+            true,                     // tooltips?
+            false                     // URLs?
+        );
+    PlotBar = (XYPlot) chartBar.getPlot();
+    rendererBar = (XYBarRenderer) PlotBar.getRenderer();
+    chartPanelBar = new ChartPanel(chartBar);
+    jTabbedPane2.addTab("histogram", chartPanelBar);
         
-        // jTabbedPane2.addTab("wygenerowane punkty2", cp);
     }//GEN-LAST:event_jButtonRunActionPerformed
 
     private void sizeViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sizeViewFocusLost
@@ -817,15 +842,15 @@ public class UI extends javax.swing.JFrame {
         XYSeries series = new XYSeries("Random");
         
         Random rand = new Random();
-        for(int i = 0 ; i < uList.size() ; i++){
-            for(int j = 0 ; j<uList.size(); j++){
-                double x = uList.get(j);
+        for(int i = 0 ; i < uList.size() ; i = i+3){
+            
+                int x = uList.get(i);
                 System.out.println(x);
-                double y = uList.get(i);
+                int y = uList.get(i+1);
                  System.out.println(y);
                 
                 series.add(x,y);
-            }
+            
         }
         
         xySeriesCollection.addSeries(series);
@@ -833,42 +858,84 @@ public class UI extends javax.swing.JFrame {
         return xySeriesCollection;
     }
 
-    private static CategoryDataset createDatasetBar() {
-
-        // row keys...
-        String series1 = "First";
-        String series2 = "Second";
-        String series3 = "Third";
-
-        // column keys...
-        String category1 = "Category 1";
-        String category2 = "Category 2";
-        String category3 = "Category 3";
-        String category4 = "Category 4";
-        String category5 = "Category 5";
-
-        // create the dataset...
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-        dataset.addValue(1.0, series1, category1);
-        dataset.addValue(4.0, series1, category2);
-        dataset.addValue(3.0, series1, category3);
-        dataset.addValue(5.0, series1, category4);
-        dataset.addValue(5.0, series1, category5);
-
-        dataset.addValue(5.0, series2, category1);
-        dataset.addValue(7.0, series2, category2);
-        dataset.addValue(6.0, series2, category3);
-        dataset.addValue(8.0, series2, category4);
-        dataset.addValue(4.0, series2, category5);
-
-        dataset.addValue(4.0, series3, category1);
-        dataset.addValue(3.0, series3, category2);
-        dataset.addValue(2.0, series3, category3);
-        dataset.addValue(3.0, series3, category4);
-        dataset.addValue(6.0, series3, category5);
-
+    private  IntervalXYDataset createDatasetBar() {
+        final XYSeries series = new XYSeries("Data");
+        
+         for(int i = 0 ; i < uList.size() ; i = i+3){
+            
+                int x = uList.get(i);
+                System.out.println(x);
+                int y = i;
+                 System.out.println(y);
+                
+                series.add(x,y);
+            
+        }
+        
+       
+        
+        final XYSeriesCollection dataset = new XYSeriesCollection(series);
         return dataset;
+        
+
+//        // row keys...
+//        String series1 = "First";
+//        
+//
+//        // column keys...
+//        String category1 = "Category 1";
+//
+//
+//
+//        // create the dataset...
+//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+//
+//        for(int i = 0 ; i < uList.size() ;  i++){
+//            
+//               int x = uList.get(i);
+////                System.out.println(x);
+//              
+//               String series1 = "First";
+//               dataset.addValue(x, series1, category1);
+//                
+//            
+//        }
+
+//        
+//
+//        return dataset;
+        
+        // row keys...
+//        String series1 = "First";
+//        String series2 = "Second";
+//        String series3 = "Third";
+//
+//        // column keys...
+//        String category1 = "Category 1";
+//  
+//
+//        // create the dataset...
+//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+//
+//        dataset.addValue(1.0, series1, category1);
+//        dataset.addValue(45.0, series1, category1);
+//        dataset.addValue(345.0, series1, category1);
+//        dataset.addValue(3450, series1, category1);
+//        dataset.addValue(56.0, series1, category1);
+//
+//        dataset.addValue(5.0, series1, category1);
+//        dataset.addValue(7.0, series1, category1);
+//        dataset.addValue(6.0, series1, category1);
+//        dataset.addValue(8.0, series1, category1);
+//        dataset.addValue(4.0, series1, category1);
+//
+//        dataset.addValue(4.0, series1, category1);
+//        dataset.addValue(3.0, series1, category1);
+//        dataset.addValue(2.0, series3, category1);
+//        dataset.addValue(3.0, series2, category1);
+//        dataset.addValue(343.0, series1, category1);
+//
+//       return dataset;
 
     }
 
