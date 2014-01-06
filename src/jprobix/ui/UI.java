@@ -63,9 +63,9 @@ public class UI extends javax.swing.JFrame {
     XYDataset ds = createDataset();
     JFreeChart chart = ChartFactory.createScatterPlot
         (
-                "Test Chart",
-                "x",
-                "y",
+                "Wykres XY",
+                "U(i)",
+                "U(i+1)",
                 ds,
                 PlotOrientation.VERTICAL,
                 true,
@@ -79,7 +79,7 @@ public class UI extends javax.swing.JFrame {
     
    IntervalXYDataset cdb = createDatasetBar();
    JFreeChart chartBar = ChartFactory.createXYBarChart(
-            "Bar Chart Demo 1",       // chart title
+            "Histogram",       // chart title
             "Category",               // domain axis label
             false,
             "Value",                  // range axis label
@@ -126,6 +126,7 @@ public class UI extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        jDialog1 = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -150,10 +151,12 @@ public class UI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextAreaConsole = new javax.swing.JTextArea();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(500, 300));
@@ -167,6 +170,17 @@ public class UI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         jTabbedPane1.addTab("tab3", jScrollPane1);
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -347,29 +361,19 @@ public class UI extends javax.swing.JFrame {
 
         jLabel11.setText("a4");
 
+        jLabel13.setText("Srednia");
+
+        jLabel14.setText("Odchylenie standardowe");
+
+        jTextAreaConsole.setEditable(false);
+        jTextAreaConsole.setColumns(20);
+        jTextAreaConsole.setLineWrap(true);
+        jTextAreaConsole.setRows(5);
+        jTextAreaConsole.setWrapStyleWord(true);
+        jTextAreaConsole.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane2.setViewportView(jTextAreaConsole);
+
         jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane2)
-                .addContainerGap())
-        );
-
-        jTabbedPane2.addTab("wygenerowane punkty", cp);
-        jTabbedPane2.addTab("histogram", chartPanelBar);
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
 
         jMenu2.setText("O programie");
         jMenuBar1.add(jMenu2);
@@ -381,108 +385,128 @@ public class UI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(sizeView)
-                    .addComponent(cView)
-                    .addComponent(mView)
-                    .addComponent(jButtonRun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(aView1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(aView2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(aView3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(aView4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(xView1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(xView2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel14)
+                                .addGap(174, 174, 174))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(iView)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2))
+                                    .addComponent(jLabel3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jView)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(xView3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(xView4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel4)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel5)
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11)
-                        .addGap(12, 12, 12)))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(sizeView)
+                                    .addComponent(cView)
+                                    .addComponent(mView)
+                                    .addComponent(jButtonRun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(aView1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(aView2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(aView3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(aView4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(xView1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(xView2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(iView)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jView)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(xView3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(xView4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jLabel4)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(jLabel5)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel11)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)))
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addGap(1, 1, 1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(aView1)
-                    .addComponent(aView2)
-                    .addComponent(aView3)
-                    .addComponent(aView4))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cView)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mView)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(xView1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(xView2)
-                    .addComponent(xView3)
-                    .addComponent(xView4))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(iView)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jView))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sizeView)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonRun, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(aView1)
+                            .addComponent(aView2)
+                            .addComponent(aView3)
+                            .addComponent(aView4))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cView)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(mView)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(xView1)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(xView2)
+                            .addComponent(xView3)
+                            .addComponent(xView4))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(iView)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jView))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sizeView)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRun, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13))
+                        .addGap(113, 113, 113))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("Wartości początkowe \ngeneratora (ziarno):");
         jLabel1.getAccessibleContext().setAccessibleDescription("");
+        jTabbedPane2.addTab("wygenerowane punkty", cp);
+        jTabbedPane2.addTab("histogram", chartPanelBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -514,9 +538,9 @@ public class UI extends javax.swing.JFrame {
     private void aView1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aView1FocusLost
       try{
         a1 = Integer.parseInt(aView1.getText().trim());
-        System.out.println("Variable a1 is set " + a1);
+        jTextAreaConsole.insert("Variable a1 is set " + a1 + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable\n" + nfe + "\n",0);
              a1 = 0;
         }
     }//GEN-LAST:event_aView1FocusLost
@@ -525,27 +549,28 @@ public class UI extends javax.swing.JFrame {
         
         try{
         m = Integer.parseInt(mView.getText().trim());
-        System.out.println("Variable m is set " + m);
+        jTextAreaConsole.insert("Variable m is set " + m + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
         }
     }//GEN-LAST:event_mViewFocusLost
 
     private void cViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cViewFocusLost
          try{
         c = Integer.parseInt(cView.getText().trim());
-        System.out.println("Variable c is set to " + c);
+        jTextAreaConsole.insert("Variable c is set to " + c + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+              jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
         }
     }//GEN-LAST:event_cViewFocusLost
 
     private void xView1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_xView1FocusLost
       try{
         x1 = Integer.parseInt(xView1.getText().trim());
-        System.out.println("Variable x1 is set " + x1);
+        jTextAreaConsole.insert("Variable x1 is set " + x1 + "\n",0);
         }catch(NumberFormatException nfe){
              System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
              x1 = 0;
         }
        
@@ -569,8 +594,7 @@ public class UI extends javax.swing.JFrame {
       uList.add(a4);
       }
       
-       int xN = 0;
-      
+        int xN = 0;
         if(size>0){
             int i = 0;
         while ( i < (size - (ziarno.size())) ){
@@ -581,16 +605,13 @@ public class UI extends javax.swing.JFrame {
              uList.add(ij);
        }else{
            ij = ij + rozkladI;
-           
-           uList.add(ij);
-           
+           uList.add(ij);   
        }
         i++;
-       
          }
         }
        System.out.println( uList);
-                
+       jTextAreaConsole.insert( uList + "\n",0);         
        
         JPanel jpanel3 = creteDemoPanel();
         jpanel3.setPreferredSize(new Dimension(640, 480));  
@@ -599,14 +620,14 @@ public class UI extends javax.swing.JFrame {
          cp.repaint();
          chart = ChartFactory.createScatterPlot
           (
-                  "Test Chart",
-                  "x",
-                  "y",
-                  ds,
-                  PlotOrientation.VERTICAL,
-                  true,
-                  true,
-                  false
+                "Wykres XY",
+                "U(i)",
+                "U(i+1)",
+                ds,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false
           );
     
      xyPlot = (XYPlot) chart.getPlot();
@@ -625,7 +646,7 @@ public class UI extends javax.swing.JFrame {
     
    cdb = createDatasetBar();
    chartBar = ChartFactory.createXYBarChart(
-            "Bar Chart Demo 1",       // chart title
+            "Histogram",       // chart title
             "Category",               // domain axis label
             false,
             "Value",                  // range axis label
@@ -635,19 +656,19 @@ public class UI extends javax.swing.JFrame {
             true,                     // tooltips?
             false                     // URLs?
         );
-    PlotBar = (XYPlot) chartBar.getPlot();
-    rendererBar = (XYBarRenderer) PlotBar.getRenderer();
-    chartPanelBar = new ChartPanel(chartBar);
-    jTabbedPane2.addTab("histogram", chartPanelBar);
-        
+        PlotBar = (XYPlot) chartBar.getPlot();
+        rendererBar = (XYBarRenderer) PlotBar.getRenderer();
+        chartPanelBar = new ChartPanel(chartBar);
+        jTabbedPane2.addTab("histogram", chartPanelBar);
+        chartPanelBar.setMouseWheelEnabled(true);
     }//GEN-LAST:event_jButtonRunActionPerformed
 
     private void sizeViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sizeViewFocusLost
          try{
         size = Integer.parseInt(sizeView.getText().trim());
-        System.out.println("Variable size is set " + size);
+        jTextAreaConsole.insert("Variable size is set " + size + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
         }
     }//GEN-LAST:event_sizeViewFocusLost
 
@@ -658,9 +679,9 @@ public class UI extends javax.swing.JFrame {
     private void aView2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aView2FocusLost
         try{
         a2 = Integer.parseInt(aView2.getText().trim());
-        System.out.println("Variable a2 is set " + a2);
+        jTextAreaConsole.insert("Variable a2 is set " + a2 + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
              a2 = 0;
         }
     }//GEN-LAST:event_aView2FocusLost
@@ -672,9 +693,9 @@ public class UI extends javax.swing.JFrame {
     private void aView3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aView3FocusLost
         try{
         a3 = Integer.parseInt(aView3.getText().trim());
-        System.out.println("Variable a3 is set " + a3);
+        jTextAreaConsole.insert("Variable a3 is set " + a3 + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
              a3 = 0;
         }
     }//GEN-LAST:event_aView3FocusLost
@@ -686,9 +707,9 @@ public class UI extends javax.swing.JFrame {
     private void aView4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_aView4FocusLost
        try{
         a4 = Integer.parseInt(aView4.getText().trim());
-        System.out.println("Variable a4 is set " + a4);
+        jTextAreaConsole.insert("Variable a4 is set " + a4 + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
              a4 = 0;
         }
     }//GEN-LAST:event_aView4FocusLost
@@ -700,9 +721,9 @@ public class UI extends javax.swing.JFrame {
     private void xView2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_xView2FocusLost
         try{
         x2 = Integer.parseInt(xView2.getText().trim());
-        System.out.println("Variable x2 is set " + x2);
+        jTextAreaConsole.insert("Variable x2 is set " + x2 + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
              x2 = 0;
         }
     }//GEN-LAST:event_xView2FocusLost
@@ -714,9 +735,9 @@ public class UI extends javax.swing.JFrame {
     private void xView3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_xView3FocusLost
         try{
         x3 = Integer.parseInt(xView3.getText().trim());
-        System.out.println("Variable x3 is set " + x3);
+        jTextAreaConsole.insert("Variable x3 is set " + x3 + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
              x3 = 0;
         }
     }//GEN-LAST:event_xView3FocusLost
@@ -728,9 +749,9 @@ public class UI extends javax.swing.JFrame {
     private void xView4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_xView4FocusLost
         try{
         x4 = Integer.parseInt(xView4.getText().trim());
-        System.out.println("Variable x4 is set " + x4);
+        jTextAreaConsole.insert("Variable x4 is set " + x4 + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
              x4 = 0;
         }
     }//GEN-LAST:event_xView4FocusLost
@@ -741,19 +762,24 @@ public class UI extends javax.swing.JFrame {
 
     private void iViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_iViewFocusLost
         try{
+            if(Integer.parseInt(iView.getText().trim())>0){
         rozkladI = Integer.parseInt(iView.getText().trim());
-        System.out.println("Variable rozkladI is set " + rozkladI);
+        jTextAreaConsole.insert("Variable rozkladI is set " + rozkladI + "\n",0);
+            }else{
+                rozkladI = 0;
+                jTextAreaConsole.insert("Variable rozkladI is set: 0 \n",0);         
+            }
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
         }
     }//GEN-LAST:event_iViewFocusLost
 
     private void jViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jViewFocusLost
           try{
         rozkladJ = Integer.parseInt(jView.getText().trim());
-        System.out.println("Variable rozkladJ is set " + rozkladJ);
+        jTextAreaConsole.insert("Variable rozkladJ is set " + rozkladJ + "\n",0);
         }catch(NumberFormatException nfe){
-             System.out.println("cannot enter variable" + nfe);
+             jTextAreaConsole.insert("cannot enter variable " + nfe + "\n",0);
         }
     }//GEN-LAST:event_jViewFocusLost
 
@@ -803,10 +829,13 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JTextField cView;
     private javax.swing.JTextField iView;
     private javax.swing.JButton jButtonRun;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -815,13 +844,13 @@ public class UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTextArea jTextAreaConsole;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextField jView;
     private javax.swing.JTextField mView;
@@ -842,101 +871,29 @@ public class UI extends javax.swing.JFrame {
         XYSeries series = new XYSeries("Random");
         
         Random rand = new Random();
-        for(int i = 0 ; i < uList.size() ; i = i+3){
+        for(int i = 0 ; i < uList.size() ; i = i+2){
             
                 int x = uList.get(i);
-                System.out.println(x);
                 int y = uList.get(i+1);
-                 System.out.println(y);
-                
                 series.add(x,y);
             
         }
         
         xySeriesCollection.addSeries(series);
-        System.out.println(xySeriesCollection);
         return xySeriesCollection;
     }
 
     private  IntervalXYDataset createDatasetBar() {
         final XYSeries series = new XYSeries("Data");
         
-         for(int i = 0 ; i < uList.size() ; i = i+3){
-            
+         for(int i = 0 ; i < uList.size() ; i = i+2){
                 int x = uList.get(i);
-                System.out.println(x);
                 int y = i;
-                 System.out.println(y);
-                
-                series.add(x,y);
-            
+                series.add(x,y); 
         }
-        
-       
-        
+
         final XYSeriesCollection dataset = new XYSeriesCollection(series);
         return dataset;
-        
-
-//        // row keys...
-//        String series1 = "First";
-//        
-//
-//        // column keys...
-//        String category1 = "Category 1";
-//
-//
-//
-//        // create the dataset...
-//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//
-//        for(int i = 0 ; i < uList.size() ;  i++){
-//            
-//               int x = uList.get(i);
-////                System.out.println(x);
-//              
-//               String series1 = "First";
-//               dataset.addValue(x, series1, category1);
-//                
-//            
-//        }
-
-//        
-//
-//        return dataset;
-        
-        // row keys...
-//        String series1 = "First";
-//        String series2 = "Second";
-//        String series3 = "Third";
-//
-//        // column keys...
-//        String category1 = "Category 1";
-//  
-//
-//        // create the dataset...
-//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//
-//        dataset.addValue(1.0, series1, category1);
-//        dataset.addValue(45.0, series1, category1);
-//        dataset.addValue(345.0, series1, category1);
-//        dataset.addValue(3450, series1, category1);
-//        dataset.addValue(56.0, series1, category1);
-//
-//        dataset.addValue(5.0, series1, category1);
-//        dataset.addValue(7.0, series1, category1);
-//        dataset.addValue(6.0, series1, category1);
-//        dataset.addValue(8.0, series1, category1);
-//        dataset.addValue(4.0, series1, category1);
-//
-//        dataset.addValue(4.0, series1, category1);
-//        dataset.addValue(3.0, series1, category1);
-//        dataset.addValue(2.0, series3, category1);
-//        dataset.addValue(3.0, series2, category1);
-//        dataset.addValue(343.0, series1, category1);
-//
-//       return dataset;
-
     }
 
  
